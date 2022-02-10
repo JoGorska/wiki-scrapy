@@ -7,6 +7,6 @@ import scrapy
 
 
 class Article(scrapy.Item):
-    title = scraply.Field()
+    title = scrapy.Field()
     url = scrapy.Field()
     lastUpdated = scrapy.Field()
