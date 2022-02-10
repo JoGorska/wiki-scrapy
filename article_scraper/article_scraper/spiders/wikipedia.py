@@ -13,10 +13,10 @@ class WikipediaSpider(CrawlSpider):
         Rule(LinkExtractor(allow=r'wiki/((?!:).)*$'), callback='parse_info', follow=True)
     ]
 
-    custom_settings={
-        'FEED_URI': 'articles.xml',
-        'FEED_FORMAT': 'xml'
-    }
+    # custom_settings={
+    #     'FEED_URI': 'articles.xml',
+    #     'FEED_FORMAT': 'xml'
+    # }
 
     def parse_info(self, response):
         article = Article()

@@ -11,8 +11,11 @@ BOT_NAME = 'article_scraper'
 
 CLOSESPIDER_PAGECOUNT=10
 
-FEED_URI='articles.json'
-FEED_FORMAT='json'
+# FEED_URI  ='articles.json'
+# FEED_FORMAT ='json'
+
+FEED_URI  ='articles.csv'
+FEED_FORMAT ='csv'
 
 SPIDER_MODULES = ['article_scraper.spiders']
 NEWSPIDER_MODULE = 'article_scraper.spiders'
@@ -67,9 +70,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'article_scraper.pipelines.ArticleScraperPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'article_scraper.pipelines.CheckItemPipeline': 100,
+    'article_scraper.pipelines.CleanDatePipeline': 200,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
